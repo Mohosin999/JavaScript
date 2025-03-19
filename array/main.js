@@ -36,3 +36,23 @@ const arr = [1, 2, 3, 4, 5];
 // popArr(arr);
 // popArr(arr);
 // console.log(arr); // [1, 2]
+
+/**
+ * shift() method
+ */
+arr.shift();
+
+const shiftArr = (array) => {
+  if (array.length === 0) return undefined;
+  const firstItem = array[0];
+
+  // re-indexing
+  for (let i = 0; i < array.length - 1; i++) {
+    array[i] = array[i + 1];
+  }
+
+  array.length = array.length - 1;
+  return firstItem;
+};
+
+console.log(shiftArr(arr));
