@@ -96,15 +96,36 @@ const arr = [1, 2, 3, 4, 5];
 /**
  * slice() method
  */
-arr.slice(2, 4);
+// arr.slice(2, 4);
 
-const sliceArr = (array, start = 0, end = array.length) => {
+// const sliceArr = (array, start = 0, end = array.length) => {
+//   const newArr = [];
+//   for (let i = start; i < end; i++) {
+//     newArr.push(array[i]);
+//   }
+
+//   return newArr;
+// };
+
+// console.log(sliceArr(arr, 2, 4));
+
+/**
+ * splice() method
+ */
+// arr.splice(0, 0 ,10)
+
+/**
+ * map() method
+ */
+arr.map((x) => x * 2);
+
+const myMap = (array, callback) => {
   const newArr = [];
-  for (let i = start; i < end; i++) {
-    newArr.push(array[i]);
+  for (let i = 0; i < array.length; i++) {
+    newArr.push(callback(array[i], i, array));
   }
 
   return newArr;
 };
 
-console.log(sliceArr(arr, 2, 4));
+console.log(myMap(arr, (x) => x * 2));
