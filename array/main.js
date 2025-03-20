@@ -40,19 +40,36 @@ const arr = [1, 2, 3, 4, 5];
 /**
  * shift() method
  */
-arr.shift();
+// arr.shift();
 
-const shiftArr = (array) => {
-  if (array.length === 0) return undefined;
-  const firstItem = array[0];
+// const shiftArr = (array) => {
+//   if (array.length === 0) return undefined;
+//   const firstItem = array[0];
 
-  // re-indexing
-  for (let i = 0; i < array.length - 1; i++) {
-    array[i] = array[i + 1];
+//   // re-indexing
+//   for (let i = 0; i < array.length - 1; i++) {
+//     array[i] = array[i + 1];
+//   }
+
+//   array.length = array.length - 1;
+//   return firstItem;
+// };
+
+// console.log(shiftArr(arr));
+
+/**
+ * unshift() method
+ */
+arr.unshift(10);
+
+const unshiftArr = (array, ...elements) => {
+  for (let i = array.length - 1; i >= 0; i--) {
+    array[i + elements.length] = array[i];
   }
-
-  array.length = array.length - 1;
-  return firstItem;
+  for (let i = 0; i < elements.length; i++) {
+    array[i] = elements[i];
+  }
+  return array.length;
 };
 
-console.log(shiftArr(arr));
+console.log(unshiftArr(arr, 10, 20));
