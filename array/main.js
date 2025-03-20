@@ -77,18 +77,34 @@ const arr = [1, 2, 3, 4, 5];
 /**
  * concat() method
  */
-const arr1 = [6, 7];
-const arr2 = [8, 9, 10];
+// const arr1 = [6, 7];
+// const arr2 = [8, 9, 10];
 // console.log(arr.concat(arr1, arr2));
 
-const concatArr = (array, ...arrays) => {
-  const newArr = [...array];
-  for (const arr of arrays) {
-    for (const element of arr) {
-      newArr.push(element);
-    }
+// const concatArr = (array, ...arrays) => {
+//   const newArr = [...array];
+//   for (const arr of arrays) {
+//     for (const element of arr) {
+//       newArr.push(element);
+//     }
+//   }
+//   return newArr;
+// };
+
+// console.log(concatArr(arr, arr1, arr2));
+
+/**
+ * slice() method
+ */
+arr.slice(2, 4);
+
+const sliceArr = (array, start = 0, end = array.length) => {
+  const newArr = [];
+  for (let i = start; i < end; i++) {
+    newArr.push(array[i]);
   }
+
   return newArr;
 };
 
-console.log(concatArr(arr, arr1, arr2));
+console.log(sliceArr(arr, 2, 4));
