@@ -60,16 +60,35 @@ const arr = [1, 2, 3, 4, 5];
 /**
  * unshift() method
  */
-arr.unshift(10);
+// arr.unshift(10);
 
-const unshiftArr = (array, ...elements) => {
-  for (let i = array.length - 1; i >= 0; i--) {
-    array[i + elements.length] = array[i];
+// const unshiftArr = (array, ...elements) => {
+//   for (let i = array.length - 1; i >= 0; i--) {
+//     array[i + elements.length] = array[i];
+//   }
+//   for (let i = 0; i < elements.length; i++) {
+//     array[i] = elements[i];
+//   }
+//   return array.length;
+// };
+
+// console.log(unshiftArr(arr, 10, 20));
+
+/**
+ * concat() method
+ */
+const arr1 = [6, 7];
+const arr2 = [8, 9, 10];
+// console.log(arr.concat(arr1, arr2));
+
+const concatArr = (array, ...arrays) => {
+  const newArr = [...array];
+  for (const arr of arrays) {
+    for (const element of arr) {
+      newArr.push(element);
+    }
   }
-  for (let i = 0; i < elements.length; i++) {
-    array[i] = elements[i];
-  }
-  return array.length;
+  return newArr;
 };
 
-console.log(unshiftArr(arr, 10, 20));
+console.log(concatArr(arr, arr1, arr2));
