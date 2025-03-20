@@ -117,15 +117,32 @@ const arr = [1, 2, 3, 4, 5];
 /**
  * map() method
  */
-arr.map((x) => x * 2);
+// arr.map((x) => x * 2);
 
-const myMap = (array, callback) => {
+// const myMap = (array, callback) => {
+//   const newArr = [];
+//   for (let i = 0; i < array.length; i++) {
+//     newArr.push(callback(array[i], i, array));
+//   }
+
+//   return newArr;
+// };
+
+// console.log(myMap(arr, (x) => x * 2));
+
+/**
+ * filter() method
+ */
+arr.filter((x) => x > 2);
+
+const myFilter = (array, callback) => {
   const newArr = [];
   for (let i = 0; i < array.length; i++) {
-    newArr.push(callback(array[i], i, array));
+    if (callback(array[i], i, array)) {
+      newArr.push(array[i]);
+    }
   }
-
   return newArr;
 };
 
-console.log(myMap(arr, (x) => x * 2));
+console.log(myFilter(arr, (x) => x > 2));
